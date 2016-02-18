@@ -1,6 +1,6 @@
 <?php
 
-/* identification via google
+var_dump($_GET);
 
 
 
