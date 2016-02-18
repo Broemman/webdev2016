@@ -3,3 +3,7 @@ Add Google Sign-In to Your Website (?)
  https://developers.google.com/identity/sign-in/web/devconsole-project
 
 https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi
+
+requête get en php
+ http://www.copernica.com/en/support/rest/example-get-post-put-and-delete-requests
+ http://php.net/manual/fr/function.curl-setopt.php
