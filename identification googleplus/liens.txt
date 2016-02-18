@@ -1,3 +1,5 @@
 Add Google Sign-In to Your Website (?)
  https://developers.google.com/identity/sign-in/web/
  https://developers.google.com/identity/sign-in/web/devconsole-project
+
+https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi
