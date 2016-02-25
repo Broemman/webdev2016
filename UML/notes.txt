@@ -1,0 +1,17 @@
+demande client -> uses case
+boite noire -> fonctionnalites
+acteurs -> primaires et secondaires
+vision systeme et vision utilisateur
+vsion generaliste -> + en + precis
+
+
+-ETAPE 1-
+
+1.) Gèrer les utilisateurs
+2.) Répertorier
+3.) Gèrer les tickets
+4.) ...
+
+Scénario nominal(succes) + scénarios alternatifs(erreurs)
+Description des scénarios pour tt les uses cases + précisé rôle des acteurs
+Acteurs : utilisateurs, chefs d'atelier(1,2,3)/techniciens, professeurs(3), direction, 
