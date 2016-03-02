@@ -4,6 +4,10 @@ Add Google Sign-In to Your Website (?)
 
 https://openclassrooms.com/courses/montez-votre-site-dans-le-cloud-avec-google-app-engine/google-accounts-api-authentifiez-vos-visiteurs
 
+"Use Google Sign-In with IT Apps "
+ https://developers.google.com/identity/work/it-apps
+
+
 https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi
 
 requête get en php

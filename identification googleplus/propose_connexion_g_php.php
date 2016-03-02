@@ -14,22 +14,46 @@
 
 
 
-$url_auth = "https://accounts.google.com/o/oauth2/v2/auth";
-$id_client="22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com";
 $redirect="https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php";
 
-$url = $url_auth."?"
+// ces infos sont maintenant dans le fichier json ou dans la libraire de gogole
+/*
+$url_auth = "https://accounts.google.com/o/oauth2/v2/auth";
+$id_client="22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com";
+*/
+
+
+
+
+// utilise la librairie PHP google
+set_include_path(get_include_path() . PATH_SEPARATOR . 'google-api-php-client-1.1.7/src');
+require_once("google-api-php-client-1.1.7/src/Google/autoload.php");
+
+
+$client = new Google_Client();
+$client->setAuthConfigFile('cred/client_secret_22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com.json');
+$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+//$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
+$client->setRedirectUri('https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php');
+
+var_dump($client);
+
+
+
+
+/*$url = $url_auth."?"
 	."response_type=code"
 	."&client_id=".urlencode($id_client)
 	."&redirect_uri=".urlencode($redirect)
 	."&scope=profile";
-	
-echo "<a href='$url'>Conaiksion avècques gougueule</a>";
-echo "<br>";
-echo $url;
+*/
+$url = $client->createAuthUrl();
 
-// à continuer
-	
+echo "<a href='$url'>Connexion avec l'api php</a><br>";
+
+echo "<a href='$url'>Conaiksionà l'ancienne</a>";
+echo "<br>";
+echo "url du lien :<br>".$url;
 
 
 ?>
