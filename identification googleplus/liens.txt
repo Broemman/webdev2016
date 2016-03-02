@@ -6,6 +6,10 @@ https://openclassrooms.com/courses/montez-votre-site-dans-le-cloud-avec-google-a
 
 https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi
 
-requête get en php
+requÃªte get en php
  http://www.copernica.com/en/support/rest/example-get-post-put-and-delete-requests
  http://php.net/manual/fr/function.curl-setopt.php
+ 
+ Tuto : Sign-In, Sign-Out Google+ et suppression du consentement de l'utilisateur.
+ 
+ http://www.gvngroup.be/fr/documentation/google/tutoriel-google-plus-sign-in
