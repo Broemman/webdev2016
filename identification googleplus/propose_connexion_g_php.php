@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /*	https://developers.google.com/identity/protocols/OAuth2WebServer#preparing-to-start-the-oauth-20-flow
 	(https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi ?)
@@ -50,14 +51,17 @@ echo "</pre>";
 
 
 
-
+// ancienne méthode http
 /*$url = $url_auth."?"
 	."response_type=code"
 	."&client_id=".urlencode($id_client)
 	."&redirect_uri=".urlencode($redirect)
 	."&scope=profile";
 */
+
 $url = $client->createAuthUrl();
+
+//$_SESSION['client']=$client;  // à faire ?
 
 echo "<a href='$url'>Connexion avec l'api php</a><br>";
 
