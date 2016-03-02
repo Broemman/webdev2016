@@ -51,7 +51,6 @@ $url = $client->createAuthUrl();
 
 echo "<a href='$url'>Connexion avec l'api php</a><br>";
 
-echo "<a href='$url'>Conaiksionà l'ancienne</a>";
 echo "<br>";
 echo "url du lien :<br>".$url;
 
