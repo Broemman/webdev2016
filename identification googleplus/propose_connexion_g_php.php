@@ -4,14 +4,14 @@
 	(https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi ?)
 */	
 
-
+// tests sur https://bastv.olympe.in/pweb2016/propose_connexion_g_php.php
 
 // Crée un lien vers l'authentification Google.
 // dans l'url, des paramètres (à destination de Google) donnent notre ID client et l'adresse de retour.
 // le visiteur s'identifie sur google puis est renvoyé sur notre site. La page de retour reçoit (par la méthode GET)
 // un 'authorization code'
 
-// tests sur https://bastv.olympe.in/pweb2016/propose_connexion_g_php.php
+
 
 
 $url_auth = "https://accounts.google.com/o/oauth2/v2/auth";

@@ -1,4 +1,5 @@
-<!-- script pour se connecter via gogole EN JS, probablement pas adapté
+<!-- OBSOLETE
+script pour se connecter via gogole EN JS, probablement pas adapté
  source :
  https://developers.google.com/identity/sign-in/web/devconsole-project
  * créer un "projet" sur https://console.developers.google.com pour choper un "ID client",
