@@ -26,17 +26,27 @@ $id_client="22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.
 
 
 // utilise la librairie PHP google
+// dans une ancienne version v1, parce que les nouvelles demandent composer
 set_include_path(get_include_path() . PATH_SEPARATOR . 'google-api-php-client-1.1.7/src');
 require_once("google-api-php-client-1.1.7/src/Google/autoload.php");
 
 
 $client = new Google_Client();
 $client->setAuthConfigFile('cred/client_secret_22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com.json');
-$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
+//$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
 //$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
 $client->setRedirectUri('https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php');
 
-var_dump($client);
+$client->addScope("profile");
+
+
+// pour une liste des scopes, voir https://developers.google.com/+/web/api/rest/oauth#login-scopes
+// il y a des constantes définies dans Service/Oauth2.php, mais scopes v1 qui peuvent être 'deprecated'
+
+
+echo "<pre>";
+print_r($client);
+echo "</pre>";
 
 
 
