@@ -2,14 +2,6 @@
 session_start();
 
 
-// présuppose que $_SESSION['id_user'] contient l'id de l'utilisateur connecté
-
-
-// si un utilisateur est déjà connecté, redirige vers la racine du site
-if(isset($_SESSION['id_user']) && $_SESSION['id_user']){
-	header('location:/index.php');					// url à adapter
-}
-
 
 set_include_path(get_include_path() . PATH_SEPARATOR . 'google-api-php-client-1.1.7/src');
 require_once("google-api-php-client-1.1.7/src/Google/autoload.php");

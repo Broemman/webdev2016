@@ -1,26 +1,26 @@
 <?php
-session_start();
 
-/*	https://developers.google.com/identity/protocols/OAuth2WebServer#preparing-to-start-the-oauth-20-flow
-	(https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi ?)
-*/	
-
+// script qui crée un lien de connexion via Google +
 // tests sur https://bastv.olympe.in/pweb2016/propose_connexion_g_php.php
 
-// Crée un lien vers l'authentification Google.
-// dans l'url, des paramètres (à destination de Google) donnent l'ID client de notre "app" et l'adresse de retour.
-// le visiteur s'identifie sur google puis est renvoyé sur notre site. La page de retour reçoit (par la méthode GET)
-// un 'authorization code', qu'elle échange contre un 'access token', qui lui permet d'obtenir des infos sur celui
-// qui s'est enregistré.
 
+session_start();
 
-$redirect="https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php";
+// si un utilisateur est déjà connecté, ne pas faire de lien
+if(isset($_SESSION['id_user']) && $_SESSION['id_user']){
+	
+}
 
+else
+{
+	// inclut la librairie PHP google
+	// (dans une ancienne version v1, parce que les nouvelles demandent composer)
 
-// utilise la librairie PHP google
-// dans une ancienne version v1, parce que les nouvelles demandent composer
-set_include_path(get_include_path() . PATH_SEPARATOR . 'google-api-php-client-1.1.7/src');
-require_once("google-api-php-client-1.1.7/src/Google/autoload.php");
+	set_include_path(get_include_path() . PATH_SEPARATOR . 'google-api-php-client-1.1.7/src');
+	require_once("google-api-php-client-1.1.7/src/Google/autoload.php");
+	
+	$redirect="https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php";
+
 
 
 $client = new Google_Client();
@@ -39,5 +39,16 @@ echo "<a href='$url'>Se connecter via Google +</a><br>";
 echo "<br>";
 echo "url du lien :<br>".$url;
 
+}	// fin if (pas d'utilisateur connecté)
 
-?>
+/*
+	principe : dans l'url du lien de connexion, des paramètres (à destination de Google) donnent l'ID client de notre "app" et l'adresse de retour.
+	le visiteur s'identifie sur google puis est renvoyé sur notre site. La page de retour reçoit (par la méthode GET)
+	un 'authorization code', qu'elle échange contre un 'access token', qui lui permet d'obtenir des infos sur celui
+	qui s'est enregistré.
+*/
+	
+/*
+	https://developers.google.com/identity/protocols/OAuth2WebServer#preparing-to-start-the-oauth-20-flow
+	(https://developers.google.com/identity/protocols/OpenIDConnect#setredirecturi ?)
+*/	
