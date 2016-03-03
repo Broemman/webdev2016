@@ -1,7 +1,8 @@
 <?php
 
 // script qui crée un lien de connexion via Google +
-// tests sur https://bastv.olympe.in/pweb2016/propose_connexion_g_php.php
+
+// tests sur https://bastv.olympe.in/pweb2016/connexion_gplus.php
 
 
 session_start();
