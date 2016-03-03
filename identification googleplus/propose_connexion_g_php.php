@@ -8,22 +8,13 @@ session_start();
 // tests sur https://bastv.olympe.in/pweb2016/propose_connexion_g_php.php
 
 // Crée un lien vers l'authentification Google.
-// dans l'url, des paramètres (à destination de Google) donnent notre ID client et l'adresse de retour.
+// dans l'url, des paramètres (à destination de Google) donnent l'ID client de notre "app" et l'adresse de retour.
 // le visiteur s'identifie sur google puis est renvoyé sur notre site. La page de retour reçoit (par la méthode GET)
-// un 'authorization code'
-
-
+// un 'authorization code', qu'elle échange contre un 'access token', qui lui permet d'obtenir des infos sur celui
+// qui s'est enregistré.
 
 
 $redirect="https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php";
-
-// ces infos sont maintenant dans le fichier json ou dans la libraire de gogole
-/*
-$url_auth = "https://accounts.google.com/o/oauth2/v2/auth";
-$id_client="22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com";
-*/
-
-
 
 
 // utilise la librairie PHP google
@@ -33,37 +24,17 @@ require_once("google-api-php-client-1.1.7/src/Google/autoload.php");
 
 
 $client = new Google_Client();
-$client->setAuthConfigFile('cred/client_secret_22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com.json');
-//$client->addScope(Google_Service_Drive::DRIVE_METADATA_READONLY);
-//$client->setRedirectUri('http://' . $_SERVER['HTTP_HOST'] . '/oauth2callback.php');
-$client->setRedirectUri('https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php');
-
+$client->setAuthConfigFile('cred/client_secret_22946272988-a3e2srpeacg8apvl36g5ii09sh4uea89.apps.googleusercontent.com.json');	// fichier (privé !) contenant les 'credentials' de notre app, il faudra mettre celles de l'ifosup
+$client->setRedirectUri('https://bastv.olympe.in/pweb2016/recoit_connexion_g_php.php');		// à changer par la suite pour mettre une page de notre site
 $client->addScope("profile");
-
+$client->addScope("email");
 
 // pour une liste des scopes, voir https://developers.google.com/+/web/api/rest/oauth#login-scopes
 // il y a des constantes définies dans Service/Oauth2.php, mais scopes v1 qui peuvent être 'deprecated'
 
-
-echo "<pre>";
-print_r($client);
-echo "</pre>";
-
-
-
-// ancienne méthode http
-/*$url = $url_auth."?"
-	."response_type=code"
-	."&client_id=".urlencode($id_client)
-	."&redirect_uri=".urlencode($redirect)
-	."&scope=profile";
-*/
-
 $url = $client->createAuthUrl();
 
-//$_SESSION['client']=$client;  // à faire ?
-
-echo "<a href='$url'>Connexion avec l'api php</a><br>";
+echo "<a href='$url'>Se connecter via Google +</a><br>";
 
 echo "<br>";
 echo "url du lien :<br>".$url;
